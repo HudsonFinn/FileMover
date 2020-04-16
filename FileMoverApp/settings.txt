@@ -1,0 +1,34 @@
+#FileSortSettings
+*Directorys
+ -mp4
+  *Subdirectory
+  -FileType
+-FileType
+
+*Directorys
+  *Subdirectory
+  -FileType
+  -FileType
+  -FileType
+  -FileType
+  *Subdirectory
+    *Subdirectory
+    -FileType
+    -FileType
+    -FileType
+    -FileType
+    -FileType
+  -FileType
+  -FileType
+  -FileType
+-FileType
+
+*Directorys
+  *Subdirectory
+  -FileType
+-FileType
+
+*Directorys
+  *Subdirectory
+  -FileType
+-FileType

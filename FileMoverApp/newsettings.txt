@@ -1,0 +1,16 @@
+#FileSortSettings
+
+*Directory
+ -files
+ -fileout
+ *SubDir
+  -file2 
+  *SubSubDir
+   -SubSubFile
+   -NextFile
+   -awopijd 
+ *SubDir2
+  -file
+
+*AnotherDir
+ -AnotherFile

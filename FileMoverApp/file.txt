@@ -1,0 +1,15 @@
+#FileSortSettings
+*Directory
+ -files
+ *SubDir
+  -file2 # Video Files
+  *SubSubDir
+   -SubSubFile
+   -NextFile
+   -awopijd #Audio Files
+ *SubDir2
+  -file
+ -fileout
+
+*AnotherDir
+ -AnotherFile
