@@ -28,4 +28,29 @@ This will perform a full sort of the specified directory with the specified prof
 Start Monitor: This will close the UI of the application and run it in the background, whenever a change is made to the deirectory specified it will perform as single sort of that directory, this may be useful to run on startup and then monitor the downloads folder so that you dont have to worry about manually sorting it.
 
 ## Setting up profiles
-Profile work based on a .txt file in which you can specify any folder structure, the programme will debug the .txt files for you 
+Profile work based on a .txt file in which you can specify any folder structure, the programme will debug the .txt files for you and give you the errors when you attempt to run either the monitor or the single sort.
+
+A simple example of a settings file:
+
+![Example UI](https://github.com/HudsonFinn/FileMover/blob/master/FileMoverApp/Media/ExampleSettingsFile.JPG)
+
+If we had an example target folder with these contents:
+
+![Example UI](https://github.com/HudsonFinn/FileMover/blob/master/FileMoverApp/Media/ExampleInput.JPG)
+
+Then ran a single sort with the example settings file:
+
+![Example UI](https://github.com/HudsonFinn/FileMover/blob/master/FileMoverApp/Media/ExampleOutput.JPG)
+
+All settings files must contain '#FileSortSettings' at the first line of the file
+
+Folders are denoted using a * and subfolders are created by adding an addition single indentation
+
+File Types are denoted using a - are are placed in the first folder that is indented one less than them e.i
+```
+*Pictures
+ -jpg
+```
+If you want to include the unzipping functionallity then you must include Compressed as a base directory with the unzipable formats contained within this directory.
+
+##### WARNING: ALTHOUGH I HAVE MADE EVERY EFFORT TO ENSURE THAT THE PROGRAMME WILL IN NO WAY DELETE ANY FILES USE AT YOUR OWN RISK AS IT IS MY FIRST FULLY FUNCTIONAL PROGRAM WHICH I AM RELEASING TO OTHERS
