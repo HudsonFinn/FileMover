@@ -1,9 +1,9 @@
 #FileSortSettings
-*DefinitlyNotText
+*Text
  -txt
  *BetterText
   -rtf
 *Pictures
- -png
+ -jpg
 *Compressed
  -zip
