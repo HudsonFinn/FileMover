@@ -1,6 +1,9 @@
-# FileMover
-This is a little project I worked on over a couple of weekends to make sorting my downloads folder easier!
+# File Moving Project
+This is a little project I worked on over a couple of weekends to make sorting my downloads/all folders easier!
 
-At the moment you run it and it will sit in the background and monitor your downloads folder (Or any folder that you like) and when a file is added it will sort that file and any other file into folders such as Audio, Video, Pictures, Text, Data, Ect. At the moment it supports over 50 file types. On top of that there is built in functionality to unzip all downloaded zip files into a separate uncompressed folder.
+This is my first full python programme and I have tried to keep the code managable and reasonably readable. All code is run from the __main__.py file and I have attempted to modualise all the parts of the programme into classes. I have also built some custom exceptions which can be found in the settingsExceptions.py file.
 
-In the near future I will be adding Functionality to sort manually and update the interface to make it more appealing! Other features may be a way to let users edit the sorting mechanism although I believe it would require a lot of work so I'll see how busy I am.
+Please feel free to use the programme edit the programme and use it in any way you you want to. Also if you would like to extend the functionality feel free to make a pull request and I'll grant anything that seems generally useful to anyone
+
+# Instructions of use
+
