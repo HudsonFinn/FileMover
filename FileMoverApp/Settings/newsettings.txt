@@ -1,0 +1,9 @@
+#FileSortSettings
+
+*DefinitlyNotText
+ -txt
+ *BetterText
+  -rtf
+
+*Pictures
+ -png

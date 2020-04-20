@@ -1,3 +1,5 @@
+from settingsExceptions import SettingsException
+
 class Settings():
     def __init__(self):
         self.ExtDict = {}
@@ -11,10 +13,12 @@ class Settings():
                 contents = list(map(lambda x : x.rstrip("\n\r"), contents))
                 if contents[0] == "#FileSortSettings":
                     return self.createStructure(contents)
+                else:
+                    raise SettingsException("Incorrect file type add #FileSortSettings to head of .txt settings file")
                 print(contents)
             fileToLoad.close()
         except FileNotFoundError:
-            print("File Not Found")
+            raise FileNotFoundError("No file found")
             #Throw a custom file not found error
 
     def createStructure(self, listToConvert):
@@ -41,17 +45,17 @@ class Settings():
                         type = "dir"
                         nameStart = i
                     else:
-                        print("EXCEPTION: INVALID SYMBOL")
+                        raise SettingsException("INVALID SYMBOL", index + 1)
                 elif v == "-":
                     if type == None:
                         type = "file"
                         nameStart = i
                     else:
-                        print("EXCEPTION: INVALID SYMBOL")
+                        raise SettingsException("INVALID SYMBOL", index + 1)
             name = value[nameStart+1:]
             if type == "dir":
                 if name in directories:
-                    print("EXCEPTION: MULTIPLE DIRECTORIES OF SAME NAME")
+                    raise SettingsException("MULTIPLE DIRECTORIES OF SAME NAME", index + 1)
                 directories.append(name)
                 if depth == 0:
                     #print("New")
@@ -84,7 +88,7 @@ class Settings():
                 if fileTypes.get(name) == None:
                     fileTypes[name] = tempDir[1:]
                 else:
-                    print("EXCEPTION: DUPLICATE FILE NAME")
+                    raise SettingsException("DUPLICATE FILE NAME", index + 1)
                     #TODO THOW CUSTOM EXCEPTION
             else:
                 print("Path: " + prevDir + "/")
@@ -96,24 +100,16 @@ class Settings():
     def saveSettings(self, fileTypes, saveFile):
         directories = fileTypes.values()
         uniqueDirs = list(set(directories))
-        print(directories)
-        print(uniqueDirs)
         uniqueDirs = list(map(lambda x : x.split("/"), uniqueDirs))
-        print(uniqueDirs)
         uniqueDirs = sorted(uniqueDirs, key = lambda x : len(x))
-        print(uniqueDirs)
         fileOutput = self.getDirs(fileTypes, uniqueDirs, "", 0, "")
         print("FileOutput")
         fileOutput = "#FileSortSettings" + fileOutput
         print(fileOutput)
 
-        try:
-            fileToLoad = open(saveFile, "w")
-            fileToLoad.write(fileOutput)
-            fileToLoad.close()
-        except FileNotFoundError:
-            print("File Not Found")
-            #Throw a custom file not found error
+        fileToLoad = open(saveFile, "w")
+        fileToLoad.write(fileOutput)
+        fileToLoad.close()
 
 
     def getDirs(self, fileTypes, uniqueDirs, baseDir, baseDirDepth, THEOUTPUT):
@@ -131,13 +127,6 @@ class Settings():
                         THEOUTPUT += "\n" + " " * (len(value)) + "-" + fileType
                 THEOUTPUT = self.getDirs(fileTypes, uniqueDirs, value[baseDirDepth], baseDirDepth + 1, THEOUTPUT)
         return(THEOUTPUT)
-
-
-
-settings = Settings()
-filesTypes = settings.loadSettings("file.txt")
-print(filesTypes)
-settings.saveSettings(filesTypes, "newsettings.txt")
 
         # ImgExt = ["ai", "bmp", "gif", "ico", "jpeg", "png", "ps", "psd", "svg", "tif", "jpg"]
         # DictExt = dict.fromkeys(ImgExt, "Images")

@@ -6,10 +6,9 @@
   *SubSubDir
    -SubSubFile
    -NextFile
-   -awopijd #Audio Files
+   - - awopijd #Audio Files
  *SubDir2
   -file
  -fileout
-
 *AnotherDir
  -AnotherFile
